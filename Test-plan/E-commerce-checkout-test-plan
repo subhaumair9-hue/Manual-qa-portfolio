@@ -1,0 +1,50 @@
+# Test Plan — E-Commerce Checkout Flow
+
+## 1. Objective
+Validate that the checkout flow of a demo e-commerce web application works correctly end to end: cart review, shipping details, payment, and order confirmation — across happy paths, validation rules, and edge cases.
+
+## 2. Scope
+**In scope**
+- Cart review page (items, quantities, totals)
+- Shipping information form and validation
+- Promo/discount code application
+- Payment form (test card numbers) and error handling
+- Order confirmation page and confirmation email
+
+**Out of scope**
+- Account registration / login flows
+- Admin/order-management backend
+- Performance and load testing
+- Real payment gateway processing (test mode only)
+
+## 3. Test types
+- Functional testing (each checkout step)
+- Input validation & negative testing
+- Regression testing (after fixes)
+- Exploratory testing (edge cases: double-clicks, back button, session timeout)
+- Basic usability checks (error message clarity, mobile layout)
+
+## 4. Test environment
+- Browsers: latest Chrome, Firefox, Safari
+- Desktop + one mobile viewport (iPhone)
+- Test card numbers provided by the payment sandbox
+
+## 5. Entry criteria
+- Checkout build deployed to the test environment
+- Test data ready (products in catalog, valid/invalid/declined test cards, promo codes)
+
+## 6. Exit criteria
+- All planned test cases executed
+- No open Critical/High severity defects
+- All High-priority defects retested and closed
+
+## 7. Schedule (sample)
+| Phase | Duration |
+|---|---|
+| Test design | 2 days |
+| Test execution — round 1 | 3 days |
+| Defect retesting & regression | 2 days |
+
+## 8. Risks
+- Payment sandbox downtime → use documented fallback test cards
+- Last-minute UI changes → prioritize smoke test of the happy path first

@@ -1,0 +1,49 @@
+# Sample Bug Reports
+
+> Demonstration reports for portfolio purposes, written against a fictional checkout flow.
+
+---
+
+## BUG-101 — Promo discount applied twice on rapid "Apply" clicks
+
+- **Severity:** High | **Priority:** High
+- **Environment:** Chrome (latest), desktop
+- **Preconditions:** Cart total $100.00; valid 10% promo code `SAVE10`.
+
+**Steps to reproduce**
+1. Go to checkout → payment step.
+2. Enter `SAVE10` and click "Apply" twice in rapid succession.
+
+**Expected:** Discount applied once — total $90.00.
+**Actual:** Discount applied twice — total $80.00.
+
+**Notes:** Likely missing request debounce / idempotency on the promo endpoint. Screenshot attached (sample).
+
+---
+
+## BUG-102 — Order total doesn't refresh after changing shipping method
+
+- **Severity:** Medium | **Priority:** Medium
+- **Environment:** Firefox (latest), desktop
+- **Preconditions:** Cart with 1 item; on shipping step.
+
+**Steps to reproduce**
+1. Select "Standard shipping ($5.00)" — total updates correctly.
+2. Change to "Express shipping ($15.00)".
+
+**Expected:** Order total increases by $10.00.
+**Actual:** Total still shows the standard-shipping amount until the page is refreshed.
+
+---
+
+## BUG-103 — Confirmation message typo on mobile viewport
+
+- **Severity:** Low | **Priority:** Low
+- **Environment:** Safari, iPhone viewport (390px)
+
+**Steps to reproduce**
+1. Complete a valid guest checkout.
+2. View the confirmation page on a mobile viewport.
+
+**Expected:** "Thank you! Your order has been confirmed."
+**Actual:** Message reads "Thank you! Your order has been confirmd."
